@@ -14,5 +14,8 @@ def counting_words(arg):
     return letters 
 
 counting_words(usr_input)
+
 print("We have analysed your word!")
-print(letters)                
+
+for letter, num in letters.items():
+    print("We have found the letter '" + letter + "' " + str(num) + " times.")             
