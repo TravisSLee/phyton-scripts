@@ -50,3 +50,29 @@ new_file( "reading.txt", "flatland.txt", "flatland01.txt")
 
 f = open(read, "r")
 print(f.read())  
+
+import json
+from pprint import pprint
+import operator
+ 
+with open('prizes.json','r') as jsonfile:    
+    data = json.load(jsonfile)
+cat_dict = {}    
+for row in data['prizes']:
+    cat = row['category']
+    laur_length = len(row['laureates'])
+    if cat in cat_dict:
+        cat_dict[cat] += laur_length
+    else:
+        cat_dict[cat] = laur_length
+
+sorted_keys = sorted(cat_dict, key=cat_dict.get, reverse=True)    
+
+print(sorted_keys[0], cat_dict[sorted_keys[0]])
+
+with open('prizes.json','r') as jsonfile:    
+    data = json.load(jsonfile)
+
+length = len(data['prizes'])
+
+pprint(data['prizes'][length - 1])
