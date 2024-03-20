@@ -7,7 +7,7 @@ def head(filepath,read_lines):
         print("Sorry you entered " + str(read_lines) + " which is greater than the file you want to read that has " + str(num_lines) +" lines.")
     else:    
         for x in range(read_lines):
-            print(f.readline()) 
+            print(f.readline(5_000_000)) 
     f.close()    
     
 head("flatland.txt",5000)
