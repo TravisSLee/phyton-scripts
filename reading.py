@@ -47,9 +47,8 @@ def new_file(input_1, input_2, input_3):
 
   
 new_file( "reading.txt", "flatland.txt", "flatland01.txt")
-
-f = open(read, "r")
-print(f.read())  
+with open(read, "r") as f:
+    print(f.read())  
 
 import json
 from pprint import pprint
