@@ -1,5 +1,6 @@
 import requests, yaml, sys, time
 from pathlib import Path
+from security import safe_requests
 
 # grab your absolute path of file without hardcoding it in script
 script_location = Path(__file__).absolute().parent
@@ -33,7 +34,7 @@ def testing_response(data):
     while True: 
         for url in data:
             try:
-                response = requests.get(url, timeout=5)
+                response = safe_requests.get(url, timeout=5)
                 results[url] = {
                     'status_code': response.status_code,
                     'response_time': response.elapsed.total_seconds()
